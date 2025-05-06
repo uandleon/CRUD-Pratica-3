@@ -3,10 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Fatec/Desktop/Interface/src/model/bean/Cliente.java</file>
-            <file>file:/C:/Users/Fatec/Desktop/Interface/src/pkginterface/Interface.java</file>
-            <file>file:/C:/Users/Fatec/Desktop/Interface/src/model/dao/ClienteDAO.java</file>
-            <file>file:/C:/Users/Fatec/Desktop/Interface/src/connection/ConnectionFactory.java</file>
+            <file>file:/C:/Users/biels/Desktop/CRUD---Pr-tica-03-main/quase%20tudo/src/model/bean/Cliente.java</file>
+            <file>file:/C:/Users/biels/Desktop/CRUD---Pr-tica-03-main/quase%20tudo/src/model/dao/ClienteDAO.java</file>
+            <file>file:/C:/Users/biels/Desktop/CRUD---Pr-tica-03-main/quase%20tudo/src/pkginterface/Cadastro.java</file>
+            <file>file:/C:/Users/biels/Desktop/CRUD---Pr-tica-03-main/quase%20tudo/src/connection/ConnectionFactory.java</file>
         </group>
     </open-files>
 </project-private>
