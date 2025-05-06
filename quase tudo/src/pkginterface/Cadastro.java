@@ -4,7 +4,13 @@
  */
 package pkginterface;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import javax.swing.table.DefaultTableModel;
+import java.util.Date;
+import javax.swing.JOptionPane;
+import model.bean.Cliente;
+import model.dao.ClienteDAO;
 
 /**
  *
@@ -120,6 +126,12 @@ public class Cadastro extends javax.swing.JDialog {
         jLabel10.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(255, 255, 255));
         jLabel10.setText("Data de nascimento:");
+
+        txtDatanascimento.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtDatanascimentoActionPerformed(evt);
+            }
+        });
 
         jButton1.setBackground(new java.awt.Color(102, 102, 102));
         jButton1.setFont(new java.awt.Font("Ebrima", 1, 14)); // NOI18N
@@ -256,17 +268,29 @@ public class Cadastro extends javax.swing.JDialog {
         c.setCpf(txtCpf.getText());
         c.setTelefone(txtTelefone.getText());
         c.setEmail(txtEmail.getText());
+        c.setEndereco(txtEndereco.getText());
+        
+        try {
+        String textoData = txtDatanascimento.getText();
+        SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
+        Date dataNascimento = sdf.parse(textoData);
+        c.setDataNascimento(dataNascimento);
+    } catch (ParseException e) {
+        JOptionPane.showMessageDialog(null, "Data de nascimento inválida! Use o formato dd-MM-yyyy.");
+        return;
+    }
+    dao.create(c);
 
-        txtDesc.setText("");
-        txtQtd.setText("");
-        txtPreco.setText("");
-
-        readJTable();
+        
 
        // DefaultTableModel dtmCliente = (DefaultTableModel) jTCliente.getModel();
        // Objct[] dados = (txtDesc.getText(), txtQtd.getText(), txtPreco.getText());
        // dtmtProdutos.addRow(dados);
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void txtDatanascimentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDatanascimentoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtDatanascimentoActionPerformed
 
     /**
      * @param args the command line arguments
