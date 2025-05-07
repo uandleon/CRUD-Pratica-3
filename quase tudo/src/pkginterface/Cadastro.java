@@ -26,6 +26,10 @@ public class Cadastro extends javax.swing.JDialog {
         initComponents();
     }
 
+    public Cadastro() {
+        initComponents();
+    }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -53,8 +57,8 @@ public class Cadastro extends javax.swing.JDialog {
         txtEndereco = new javax.swing.JTextField();
         jLabel10 = new javax.swing.JLabel();
         txtDatanascimento = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        jBCadastrar = new javax.swing.JButton();
+        jBTable = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -86,7 +90,7 @@ public class Cadastro extends javax.swing.JDialog {
                 .addComponent(jLabel3)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel1)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(198, Short.MAX_VALUE))
         );
 
         jPanel3.setBackground(new java.awt.Color(51, 51, 51));
@@ -133,20 +137,25 @@ public class Cadastro extends javax.swing.JDialog {
             }
         });
 
-        jButton1.setBackground(new java.awt.Color(102, 102, 102));
-        jButton1.setFont(new java.awt.Font("Ebrima", 1, 14)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jButton1.setText("Cadastrar");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        jBCadastrar.setBackground(new java.awt.Color(102, 102, 102));
+        jBCadastrar.setFont(new java.awt.Font("Ebrima", 1, 14)); // NOI18N
+        jBCadastrar.setForeground(new java.awt.Color(255, 255, 255));
+        jBCadastrar.setText("Cadastrar");
+        jBCadastrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                jBCadastrarActionPerformed(evt);
             }
         });
 
-        jButton2.setBackground(new java.awt.Color(102, 102, 102));
-        jButton2.setFont(new java.awt.Font("Ebrima", 1, 14)); // NOI18N
-        jButton2.setForeground(new java.awt.Color(255, 255, 255));
-        jButton2.setText("Clientes");
+        jBTable.setBackground(new java.awt.Color(102, 102, 102));
+        jBTable.setFont(new java.awt.Font("Ebrima", 1, 14)); // NOI18N
+        jBTable.setForeground(new java.awt.Color(255, 255, 255));
+        jBTable.setText("Clientes");
+        jBTable.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBTableActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -162,7 +171,7 @@ public class Cadastro extends javax.swing.JDialog {
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                             .addComponent(jLabel2)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButton2))
+                            .addComponent(jBTable))
                         .addGroup(jPanel3Layout.createSequentialGroup()
                             .addGap(74, 74, 74)
                             .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -192,7 +201,7 @@ public class Cadastro extends javax.swing.JDialog {
                 .addContainerGap(63, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jBCadastrar, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(288, 288, 288))
         );
         jPanel3Layout.setVerticalGroup(
@@ -205,7 +214,7 @@ public class Cadastro extends javax.swing.JDialog {
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGap(45, 45, 45)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButton2)
+                            .addComponent(jBTable)
                             .addComponent(jLabel2))))
                 .addGap(56, 56, 56)
                 .addComponent(jLabel5)
@@ -231,8 +240,8 @@ public class Cadastro extends javax.swing.JDialog {
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtEndereco, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtDatanascimento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 75, Short.MAX_VALUE)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jBCadastrar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(75, 75, 75))
         );
 
@@ -243,7 +252,7 @@ public class Cadastro extends javax.swing.JDialog {
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -258,7 +267,7 @@ public class Cadastro extends javax.swing.JDialog {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtNomeActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void jBCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBCadastrarActionPerformed
         // TODO add your handling code here:
 
         Cliente c = new Cliente();
@@ -272,25 +281,36 @@ public class Cadastro extends javax.swing.JDialog {
         
         try {
         String textoData = txtDatanascimento.getText();
-        SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
+        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
         Date dataNascimento = sdf.parse(textoData);
         c.setDataNascimento(dataNascimento);
     } catch (ParseException e) {
-        JOptionPane.showMessageDialog(null, "Data de nascimento inválida! Use o formato dd-MM-yyyy.");
+        JOptionPane.showMessageDialog(null, "Data de nascimento inválida! Use o formato dd/MM/yyyy.");
         return;
     }
     dao.create(c);
 
-        
+    txtNome.setText("");
+    txtCpf.setText("");
+    txtTelefone.setText("");
+    txtEmail.setText("");
+    txtEndereco.setText("");
+    txtDatanascimento.setText("");
 
        // DefaultTableModel dtmCliente = (DefaultTableModel) jTCliente.getModel();
        // Objct[] dados = (txtDesc.getText(), txtQtd.getText(), txtPreco.getText());
        // dtmtProdutos.addRow(dados);
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_jBCadastrarActionPerformed
 
     private void txtDatanascimentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDatanascimentoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtDatanascimentoActionPerformed
+
+    private void jBTableActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBTableActionPerformed
+    ClientesView tabela = new ClientesView();
+    tabela.setVisible(true);
+    this.dispose();
+    }//GEN-LAST:event_jBTableActionPerformed
 
     /**
      * @param args the command line arguments
@@ -335,8 +355,8 @@ public class Cadastro extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jBCadastrar;
+    private javax.swing.JButton jBTable;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;

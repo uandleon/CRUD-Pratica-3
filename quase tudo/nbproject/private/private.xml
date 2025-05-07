@@ -2,6 +2,11 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group/>
+        <group>
+            <file>file:/C:/Users/biels/Desktop/CRUD---Pr-tica-03-main/CRUD---Pr-tica-03/quase%20tudo/src/pkginterface/Cadastro.java</file>
+            <file>file:/C:/Users/biels/Desktop/CRUD---Pr-tica-03-main/CRUD---Pr-tica-03/quase%20tudo/src/pkginterface/ClienteEdit.java</file>
+            <file>file:/C:/Users/biels/Desktop/CRUD---Pr-tica-03-main/CRUD---Pr-tica-03/quase%20tudo/src/pkginterface/ClientesView.java</file>
+            <file>file:/C:/Users/biels/Desktop/CRUD---Pr-tica-03-main/CRUD---Pr-tica-03/quase%20tudo/src/model/dao/ClienteDAO.java</file>
+        </group>
     </open-files>
 </project-private>
