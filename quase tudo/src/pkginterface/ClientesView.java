@@ -64,7 +64,7 @@ public class ClientesView extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMaximumSize(new java.awt.Dimension(32767, 32767));
-        setPreferredSize(new java.awt.Dimension(32767, 32767));
+        setPreferredSize(new java.awt.Dimension(1110, 651));
 
         jTClientes.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -85,6 +85,8 @@ public class ClientesView extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
+        jTClientes.setPreferredSize(new java.awt.Dimension(1100, 80));
+        jTClientes.setRequestFocusEnabled(false);
         jTClientes.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 jTClientesKeyReleased(evt);
@@ -157,16 +159,16 @@ public class ClientesView extends javax.swing.JFrame {
         return;
     }
 
-
+    int id = (int) jTClientes.getValueAt(selectedRow, 0);
     String nome = (String) jTClientes.getValueAt(selectedRow, 1); 
     String telefone = (String) jTClientes.getValueAt(selectedRow, 3);
-    String endereco = (String) jTClientes.getValueAt(selectedRow, 4);
-    String email = (String) jTClientes.getValueAt(selectedRow, 5);
+    String email = (String) jTClientes.getValueAt(selectedRow, 4);
+    String endereco = (String) jTClientes.getValueAt(selectedRow, 5);
     java.sql.Date dataSql = (java.sql.Date) jTClientes.getValueAt(selectedRow, 6);
     String dataNascimento = new java.text.SimpleDateFormat("dd/MM/yyyy").format(dataSql);
 
-    // Agora abre o popup
-    ClienteEdit editPopup = new ClienteEdit(nome, endereco, telefone, email, dataNascimento);
+
+    ClienteEdit editPopup = new ClienteEdit(this, id, nome, telefone, endereco, email, dataNascimento);
     editPopup.setLocationRelativeTo(null); 
     editPopup.setVisible(true);
 

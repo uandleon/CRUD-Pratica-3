@@ -10,6 +10,7 @@ import javax.swing.table.DefaultTableModel;
 import java.util.Date;
 import javax.swing.JOptionPane;
 import model.bean.Cliente;
+import static model.bean.Cliente.isCPFValido;
 import model.dao.ClienteDAO;
 
 /**
@@ -288,6 +289,11 @@ public class Cadastro extends javax.swing.JDialog {
         JOptionPane.showMessageDialog(null, "Data de nascimento inválida! Use o formato dd/MM/yyyy.");
         return;
     }
+    String cpf = txtCpf.getText();
+    if (!isCPFValido(cpf)) {
+        JOptionPane.showMessageDialog(null, "CPF inválido!");
+    return;
+}
     dao.create(c);
 
     txtNome.setText("");

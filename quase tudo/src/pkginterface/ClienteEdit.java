@@ -16,20 +16,24 @@ import model.dao.ClienteDAO;
  *
  * @author Uriel
  */
+
 public class ClienteEdit extends javax.swing.JFrame {
 
     /**
      * Creates new form ClienteEdit
      */
     private int clienteId;
-
-    public ClienteEdit(String nome, String telefone, String endereco, String email, String dataNascimento) {
-        initComponents();
-        txtNome.setText(nome);
-        txtTelefone.setText(telefone);
-        txtEndereco.setText(endereco);
-        txtEmail.setText(email);
-        txtDatanascimento.setText(dataNascimento);
+    private ClientesView clientesView;
+    
+    public ClienteEdit(ClientesView clientesView, int id, String nome, String telefone, String endereco, String email, String dataNascimento) {
+    initComponents();
+    this.clienteId = id;
+    this.clientesView = clientesView;
+    txtNome.setText(nome);
+    txtTelefone.setText(telefone);
+    txtEndereco.setText(endereco);
+    txtEmail.setText(email);
+    txtDatanascimento.setText(dataNascimento);
 }
 
     private ClienteEdit() {
@@ -73,7 +77,7 @@ public class ClienteEdit extends javax.swing.JFrame {
             }
         });
 
-        jLabel3.setText("Endereco:");
+        jLabel3.setText("Endereço:");
 
         txtTelefone.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -90,6 +94,12 @@ public class ClienteEdit extends javax.swing.JFrame {
         });
 
         jLabel5.setText("Email:");
+
+        txtDatanascimento.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtDatanascimentoActionPerformed(evt);
+            }
+        });
 
         jLabel6.setText("Data Nascimento:");
 
@@ -117,7 +127,7 @@ public class ClienteEdit extends javax.swing.JFrame {
                         .addComponent(txtNome, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jLabel5)
-                        .addGap(10, 10, 10)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 65, Short.MAX_VALUE)
@@ -181,30 +191,48 @@ public class ClienteEdit extends javax.swing.JFrame {
     }//GEN-LAST:event_txtTelefoneActionPerformed
 
     private void jBConfirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBConfirmarActionPerformed
-    Cliente c = new Cliente();
-    ClienteDAO dao = new ClienteDAO();
+    String nome = txtNome.getText().trim();
+    String telefone = txtTelefone.getText().trim();
+    String endereco = txtEndereco.getText().trim();
+    String email = txtEmail.getText().trim();
+    String dataStr = txtDatanascimento.getText().trim();
 
-    c.setId(clienteId); 
-    c.setNome(txtNome.getText());
-    c.setTelefone(txtTelefone.getText());
-    c.setEmail(txtEmail.getText());
-    c.setEndereco(txtEndereco.getText());
-    
-    try {
-        String textoData = txtDatanascimento.getText();
-        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
-        Date dataNascimento = sdf.parse(textoData);
-        c.setDataNascimento(dataNascimento);
-    } catch (ParseException e) {
-        JOptionPane.showMessageDialog(null, "Data de nascimento inválida! Use o formato dd-MM-yyyy.");
+    // NÃO É IA Validação de campos vazios (opcional)
+    if (nome.isEmpty() || telefone.isEmpty() || endereco.isEmpty() || email.isEmpty() || dataStr.isEmpty()) {
+        JOptionPane.showMessageDialog(this, "Preencha todos os campos.");
         return;
     }
-    
-    dao.update(c); 
-    JOptionPane.showMessageDialog(this, "Cliente atualizado com sucesso!");
-    this.dispose();
 
+    // NÃO É IA Validação da data de nascimento
+    Date dataNascimento = null;
+    try {
+        SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
+        formato.setLenient(false); 
+        dataNascimento = formato.parse(dataStr);
+    } catch (ParseException e) {
+        JOptionPane.showMessageDialog(this, "Data de nascimento inválida. Use o formato dd/MM/yyyy.");
+        return; 
+    }
+
+   
+    Cliente cliente = new Cliente();
+    cliente.setId(clienteId);
+    cliente.setNome(nome);
+    cliente.setTelefone(telefone);
+    cliente.setEndereco(endereco);
+    cliente.setEmail(email);
+    cliente.setDataNascimento(dataNascimento);
+
+    ClienteDAO dao = new ClienteDAO();
+    dao.update(cliente);
+
+    clientesView.readJTable(); 
+    this.dispose(); 
     }//GEN-LAST:event_jBConfirmarActionPerformed
+
+    private void txtDatanascimentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDatanascimentoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtDatanascimentoActionPerformed
 
     /**
      * @param args the command line arguments
