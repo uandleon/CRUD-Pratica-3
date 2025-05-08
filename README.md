@@ -34,9 +34,13 @@ duplicado, excluir um cliente inexistente, ou editar um cliente com CPF inválid
 
 # Requisitos Técnicos: 
 • O sistema deve ser desenvolvido em Java.
+
 • O CRUD deve ser implementado utilizando Orientação a Objetos.
+
 • Para armazenar os dados,  o MySQL.
+
 • Utilize JDBC (Java Database Connectivity) para interação com o banco de dados.
+
 • Crie uma tabela clientes no banco de dados com os seguintes campos:
 
 ## Trabalho realizado Por Uanderson Leonardo e Gabriel Sarubi
