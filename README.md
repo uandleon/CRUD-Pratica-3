@@ -3,6 +3,13 @@ Desenvolva um sistema de cadastro de clientes utilizando Java e conectar ao SGBD
 deve implementar as operações CRUD (Create, Read, Update, Delete) para o gerenciamento de dados dos 
 clientes e armazená-los no banco de dados.
 
+# Como rodar o Sistema:
+1. Baixe o Netbeans, e abra o projeto.
+2. Baixe o Drive JDBC Connector e o adicione na biblioteca do projeto.
+3. Baixe o Mysql Workbench MSI, e abra todos os arquivos DB do projeto e rode. 
+4. Dê "Run" na main pelo netbeans.
+
+
 # Requisitos do Sistema:
 1. Cadastro de Cliente (Create): 
 o O sistema deve permitir o cadastro de um cliente, armazenando as seguintes informações: 
